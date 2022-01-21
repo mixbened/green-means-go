@@ -1,0 +1,21 @@
+{
+  "name": "green-means-go",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "./docker_build.sh",
+    "restart": "yarn build && yarn serve",
+    "serve": "./docker_run.sh",
+    "chrome": "docker run -it --rm --cap-add=SYS_ADMIN lighthouse_ci https://example.com --fast --quiet --output=json | node -e \"let f = ''; process.stdin.on('data', d => f += d); process.stdin.on('close', () => console.log(JSON.parse(f).userAgent));\""
+  },
+  "author": "Benedikt Mix",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "lighthouse": "^9.2.0"
+  }
+}
