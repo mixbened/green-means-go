@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "bin": {
+    "@mixbened/green-means-go": "bin/green-means-go",
+    "create-project": "bin/create-project"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "node server.js",
     "build": "./docker_build.sh",
@@ -11,7 +18,7 @@
     "chrome": "docker run -it --rm --cap-add=SYS_ADMIN lighthouse_ci https://example.com --fast --quiet --output=json | node -e \"let f = ''; process.stdin.on('data', d => f += d); process.stdin.on('close', () => console.log(JSON.parse(f).userAgent));\""
   },
   "author": "Benedikt Mix",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.25.0",
     "body-parser": "^1.18.3",
